@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Todo</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app">
+    <header class="app-header">
+      <h1>Todo</h1>
+      <p class="subtitle" id="today"></p>
+    </header>
+
+    <form id="add-form" class="add-form">
+      <input
+        type="text"
+        id="task-input"
+        placeholder="やることを入力..."
+        autocomplete="off"
+        maxlength="200"
+        required
+      >
+      <input type="date" id="due-input" class="due-input">
+      <select id="priority-input" class="priority-input">
+        <option value="low">低</option>
+        <option value="mid" selected>中</option>
+        <option value="high">高</option>
+      </select>
+      <input
+        type="text"
+        id="tags-input"
+        class="tags-input"
+        placeholder="タグ (カンマ区切り)"
+        autocomplete="off"
+        maxlength="100"
+      >
+      <button type="submit" class="add-btn" aria-label="追加">追加</button>
+    </form>
+
+    <div class="toolbar">
+      <div class="filters" role="tablist">
+        <button class="filter-btn active" data-filter="all">すべて</button>
+        <button class="filter-btn" data-filter="active">未完了</button>
+        <button class="filter-btn" data-filter="completed">完了済み</button>
+      </div>
+      <button id="clear-completed" class="clear-btn">完了済みを削除</button>
+    </div>
+
+    <div id="tag-filters" class="tag-filters" hidden></div>
+
+    <ul id="task-list" class="task-list"></ul>
+
+    <p id="empty-state" class="empty-state" hidden>タスクはありません</p>
+
+    <footer class="app-footer">
+      <span id="count-label">0 件残り</span>
+    </footer>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
